@@ -1,9 +1,11 @@
-Animate Book!
+GIF the Web
 =============
 
 Have you ever wished Facebook animated GIFs like a real website?
 
-Well, now it does.
+Have you ever wanted gchat to show images inline?
+
+Well, now they do.
 
 ![wow](http://f.rouge8.com/gifs/wow.gif)
 
