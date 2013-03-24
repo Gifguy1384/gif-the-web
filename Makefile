@@ -8,4 +8,4 @@ clean:
 	rm -f $(ARCHIVE).zip
 
 zip:
-	zip $(ARCHIVE).zip * -x *.zip Makefile
+	zip $(ARCHIVE).zip -r * -x *.zip Makefile
