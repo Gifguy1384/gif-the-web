@@ -7,8 +7,8 @@ function show(images) {
             width = $this.parent().width(),
             img = $('<img />', {src:url });
 
-        // remove needshandler attribute so it doesn't get selected again
-        $this.attr('needshandler', '');
+        // add gif the web class to mark as done
+        $this.addClass('gif-the-web');
 
         // create image
         img.css('width', width).css('height', 'auto');
@@ -17,12 +17,15 @@ function show(images) {
 }
 
 var observer = new MutationObserver(function(mutations, observer) {
-    var link = 'a[needshandler="needsHandler"]',
-        gif = link + '[href$=".gif"]',
-        png = link + '[href$=".png"]',
-        jpg = link + '[href$=".jpg"]',
-        jpeg = link + '[href$=".jpeg"]',
-        all = [gif, png, jpg, jpeg],
+    var link = 'a[needshandler="needsHandler"]:not(.gif-the-web)',
+        all = [
+            // google images
+            link + '[href*="gstatic.com/images?q"]',
+            link + '[href$=".gif"]',
+            link + '[href$=".png"]',
+            link + '[href$=".jpg"]',
+            link + '[href$=".jpeg"]'
+        ],
         images = $(all.join(', '));
     if (images.length) {
         show(images);

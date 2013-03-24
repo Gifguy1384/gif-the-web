@@ -18,5 +18,5 @@ Use [dotjs]? No problem. Just dump [`facebook.com.js`][fb] and [`mail.google.com
 
 [chrome]: https://chrome.google.com/webstore/detail/gif-the-web/lljgfacpcbajoiobfcgbijhbkfpibkhc/details
 [dotjs]: https://github.com/defunkt/dotjs
-[fb]: https://github.com/rouge8/gif-the-web/blob/master/facebook.com.js
-[gchat]: https://github.com/rouge8/gif-the-web/blob/master/mail.google.com.js
+[fb]: https://github.com/rouge8/gif-the-web/blob/master/sites/facebook.com.js
+[gchat]: https://github.com/rouge8/gif-the-web/blob/master/sites/mail.google.com.js
