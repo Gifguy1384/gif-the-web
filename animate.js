@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
         return decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
-    function animate(gifs) {
+    function animate(gifs, size) {
         gifs.each(function() {
             var $this = $(this),
                 $parent = $this.parent(),
@@ -28,10 +28,10 @@ jQuery(document).ready(function($) {
                     // adding fbexternal somewhere in the element styling
                     // lets hoverzoom pick up on the element
                     $this.css('width', 'auto /*fbexternal*/')
-                         .height(height);
+                         .height(size || height);
                 } else if (width > height) {
                     $this.css('height', 'auto /*fbexternal*/')
-                         .width(width);
+                         .width(size || width);
                 }
                 else {
                     $this.css('max-height', height + 'px')
@@ -40,10 +40,19 @@ jQuery(document).ready(function($) {
                          .css('width', 'auto');
                 }
             }
+
+            // bigger sizes
+            if (size) {
+                $this.css('max-width', size + 'px')
+                     .css('max-height', size + 'px');
+            }
         });
     }
 
     var observer = new MutationObserver(function(mutations, observer) {
+        var commentGifs = $('.UFIComment a img[src*="safe_image.php"][src$=".gif"]');
+        animate(commentGifs, 250);
+
         var safeImageGifs = $('a img[src*="safe_image.php"][src$=".gif"]');
         animate(safeImageGifs);
 
@@ -58,7 +67,7 @@ jQuery(document).ready(function($) {
             $this.css('background-image', '');
             $this.attr('src', url);
         });
-        animate(backgroundGifs);
+        animate(backgroundGifs, 250);
     });
 
     observer.observe(document, {
