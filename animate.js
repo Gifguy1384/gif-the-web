@@ -25,16 +25,18 @@ jQuery(document).ready(function($) {
             // make gifs as big as possible :)
             if (height || width) {
                 if (height > width) {
-                    $this.css('width', 'auto')
+                    // adding fbexternal somewhere in the element styling
+                    // lets hoverzoom pick up on the element
+                    $this.css('width', 'auto /*fbexternal*/')
                          .height(height);
                 } else if (width > height) {
-                    $this.css('height', 'auto')
+                    $this.css('height', 'auto /*fbexternal*/')
                          .width(width);
                 }
                 else {
                     $this.css('max-height', height + 'px')
                          .css('max-width', width + 'px')
-                         .css('height', 'auto')
+                         .css('height', 'auto /*fbexternal*/')
                          .css('width', 'auto');
                 }
             }
