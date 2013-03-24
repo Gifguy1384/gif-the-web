@@ -12,4 +12,4 @@ Well, now they do.
 Currently for Chrome. [Get it now!][chrome] If anyone wants to port it to Firefox, that's be cool.
 
 
-[chrome]: https://chrome.google.com/webstore/detail/animate-book/lljgfacpcbajoiobfcgbijhbkfpibkhc/related
+[chrome]: https://chrome.google.com/webstore/detail/gif-the-web/lljgfacpcbajoiobfcgbijhbkfpibkhc/details
