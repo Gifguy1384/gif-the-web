@@ -22,28 +22,21 @@ function animate(gifs, size) {
         $this.attr('src', url);
 
         // make gifs as big as possible :)
-        if (height || width) {
-            if (height > width) {
-                // adding fbexternal somewhere in the element styling
-                // lets hoverzoom pick up on the element
-                $this.css('width', 'auto /*fbexternal*/')
-                     .height(size || height);
-            } else if (width > height) {
-                $this.css('height', 'auto /*fbexternal*/')
-                     .width(size || width);
-            }
-            else {
-                $this.css('max-height', height + 'px')
-                     .css('max-width', width + 'px')
-                     .css('height', 'auto /*fbexternal*/')
-                     .css('width', 'auto');
-            }
-        }
-
-        // bigger sizes
         if (size) {
             $this.css('max-width', size + 'px')
                  .css('max-height', size + 'px');
+
+            if ($this.height() > $this.width()) {
+                $this.css('width', 'auto /*fbexternal*/');
+                $this.height(size);
+            }
+            else {
+                $this.css('height', 'auto /*fbexternal*/');
+                $this.width(size);
+            }
+        } else if (height || width) {
+            $this.css('width', 'auto /*fbexternal*/')
+                 .css('height', height + 'px /*fbexternal*/');
         }
     });
 }
@@ -67,6 +60,20 @@ var observer = new MutationObserver(function(mutations, observer) {
         $this.attr('src', url);
     });
     animate(backgroundGifs, 250);
+
+    var newTimelineGifs = $('a.shareLink img').filter(function() {
+        var image = $(this).css('background-image');
+        return image.indexOf('.gif') > -1 && image.indexOf('safe_image.php') > -1;
+    });
+
+    newTimelineGifs.each(function() {
+        var $this = $(this),
+            url = $(this).css('background-image');
+        url = url.slice(4, url.length - 1);
+        $this.css('background-image', '');
+        $this.attr('src', url);
+    });
+    animate(newTimelineGifs);
 });
 
 observer.observe(document, {
