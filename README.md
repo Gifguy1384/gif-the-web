@@ -9,7 +9,7 @@ Well, now they do.
 
 ![wow](http://f.rouge8.com/gifs/wow.gif)
 
-Currently for Chrome. [Get it now!][chrome] If anyone wants to port it to Firefox, that's be cool.
+Currently for Chrome. [Get it now!][chrome] If anyone wants to port it to Firefox, that'd be cool.
 
 ## `~/.js`
 
