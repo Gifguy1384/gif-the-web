@@ -1,9 +1,14 @@
 {
     "name": "GIF the Web",
-    "version": "0.5.2",
+    "version": "0.6",
     "manifest_version": 2,
     "description": "Animate GIFs on Facebook. Show images on gchat. Make the web more awesome.",
     "homepage_url": "https://github.com/rouge8/gif-the-web",
+
+    "permissions": [
+        "http://*/",
+        "https://*/"
+    ],
 
     "content_scripts": [
         {

@@ -1,35 +1,35 @@
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-function show(images) {
-    images.each(function() {
-        var $this = $(this),
-            url = $this.attr('href'),
-            width = $this.parent().width(),
-            img = $('<img />', {src:url });
+function show(image) {
+    var $image = $(image),
+        url = $image.attr('href'),
+        width = $image.parent().width(),
+        img = $('<img />', {src:url });
+    // add gif the web class to mark as done
+    $image.addClass('gif-the-web');
 
-        // add gif the web class to mark as done
-        $this.addClass('gif-the-web');
-
-        // create image
-        img.css('width', width).css('height', 'auto');
-        $this.html(img);
-    });
+    // create image
+    img.css('width', width).css('height', 'auto');
+    $image.html(img);
 }
 
 var observer = new MutationObserver(function(mutations, observer) {
-    var link = 'a[needshandler="needsHandler"]:not(.gif-the-web)',
-        all = [
-            // google images
-            link + '[href*="gstatic.com/images?q"]',
-            link + '[href$=".gif"]',
-            link + '[href$=".png"]',
-            link + '[href$=".jpg"]',
-            link + '[href$=".jpeg"]'
-        ],
-        images = $(all.join(', '));
-    if (images.length) {
-        show(images);
-    }
+    var links = $('a[needshandler="needsHandler"]:not(.gif-the-web)');
+
+    links.each(function() {
+        var $this = $(this),
+            url = $this.attr('href');
+        $.ajax({
+            url: url,
+            type: 'HEAD'
+        }).done(function(data, textStatus, jqXHR) {
+            var type = jqXHR.getResponseHeader('Content-Type').toLowerCase();
+            console.log(type);
+            if (type.substring(0,6) === 'image/') {
+                show($this);
+            }
+        });
+    });
 });
 
 observer.observe(document, {
