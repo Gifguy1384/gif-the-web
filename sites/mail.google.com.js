@@ -24,7 +24,6 @@ var observer = new MutationObserver(function(mutations, observer) {
             type: 'HEAD'
         }).done(function(data, textStatus, jqXHR) {
             var type = jqXHR.getResponseHeader('Content-Type').toLowerCase();
-            console.log(type);
             if (type.substring(0,6) === 'image/') {
                 show($this);
             }
