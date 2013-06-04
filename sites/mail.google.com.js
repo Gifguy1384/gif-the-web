@@ -23,8 +23,13 @@ var observer = new MutationObserver(function(mutations, observer) {
             url: url,
             type: 'HEAD'
         }).done(function(data, textStatus, jqXHR) {
-            var type = jqXHR.getResponseHeader('Content-Type').toLowerCase();
-            if (type.substring(0,6) === 'image/') {
+            var header,
+                type;
+            header = jqXHR.getResponseHeader('Content-Type');
+            if (header) {
+                type = header.toLowerCase();
+            }
+            if (type && type.substring(0,6) === 'image/') {
                 show($this);
             }
         });
