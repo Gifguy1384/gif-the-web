@@ -1,4 +1,5 @@
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var _ = window._ || {};
 
 function show(image) {
     var $image = $(image),
@@ -13,7 +14,7 @@ function show(image) {
     $image.html(img);
 }
 
-var observer = new MutationObserver(function(mutations, observer) {
+var findImages = function () {
     var links = $('a[needshandler="needsHandler"]:not(.gif-the-web)');
 
     links.each(function() {
@@ -34,7 +35,13 @@ var observer = new MutationObserver(function(mutations, observer) {
             }
         });
     });
-});
+};
+
+if (_.throttle) {
+  findImages = _.throttle(findImages, 1000);
+}
+
+var observer = new MutationObserver(findImages);
 
 observer.observe(document, {
     subtree: true,
