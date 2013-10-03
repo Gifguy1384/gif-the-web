@@ -1,6 +1,6 @@
 {
     "name": "GIF the Web",
-    "version": "0.6.3",
+    "version": "0.7.0",
     "manifest_version": 2,
     "description": "Animate GIFs on Facebook. Show images on gchat. Make the web more awesome.",
     "homepage_url": "https://github.com/rouge8/gif-the-web",
@@ -18,6 +18,11 @@
         {
             "matches": ["https://mail.google.com/*"],
             "js": ["jquery.js", "lodash.js", "sites/mail.google.com.js"]
+        },
+        {
+            "all_frames": true,
+            "matches": ["https://talkgadget.google.com/*"],
+            "js": ["jquery.js", "lodash.js", "URI.js", "sites/talkgadget.google.com.js"]
         }
     ]
 }

@@ -3,7 +3,7 @@ GIF the Web
 
 Have you ever wished Facebook animated GIFs like a real website?
 
-Have you ever wanted gchat to show images inline?
+Have you ever wanted gchat (including hangouts!) to show images inline?
 
 Well, now they do.
 
