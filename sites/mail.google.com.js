@@ -32,6 +32,9 @@ var findImages = function () {
             }
             if (type && type.substring(0,6) === 'image/') {
                 show($this);
+            } else {
+                // add gif-the-web class to mark as done
+                $this.addClass('gif-the-web');
             }
         });
     });

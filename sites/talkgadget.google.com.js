@@ -33,8 +33,9 @@ var findImages = function () {
             }
             if (type && type.substring(0,6) === 'image/') {
                 $this.attr('href', parsedURL);
-                console.log('about to show!', parsedURL);
                 show($this);
+            } else {
+                $this.addClass('.gif-the-web');
             }
         });
     });
