@@ -6,8 +6,6 @@ function show(image) {
         url = $image.attr('href'),
         width = $image.parent().width(),
         img = $('<img />', {src:url });
-    // add gif the web class to mark as done
-    $image.addClass('gif-the-web');
 
     // create image
     img.css('width', width).css('height', 'auto');
@@ -20,6 +18,9 @@ var findImages = function () {
     links.each(function() {
         var $this = $(this),
             url = $this.attr('href');
+        // add gif-the-web class to mark as done
+        $this.addClass('gif-the-web');
+
         $.ajax({
             url: url,
             type: 'HEAD'
@@ -32,9 +33,6 @@ var findImages = function () {
             }
             if (type && type.substring(0,6) === 'image/') {
                 show($this);
-            } else {
-                // add gif-the-web class to mark as done
-                $this.addClass('gif-the-web');
             }
         });
     });
