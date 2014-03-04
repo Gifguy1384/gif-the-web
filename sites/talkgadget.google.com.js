@@ -20,7 +20,7 @@ var findImages = function () {
             googleURL = $this.attr('href'),
             parsedURL = new URI(googleURL).search(true).q;
         // add gif the web class to mark as done
-        $this.addClass('.gif-the-web');
+        $this.addClass('gif-the-web');
 
         $.ajax({
             url: parsedURL,
