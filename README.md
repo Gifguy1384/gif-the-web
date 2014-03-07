@@ -7,7 +7,7 @@ Have you ever wanted gchat (including hangouts!) to show images inline?
 
 Well, now they do.
 
-![wow](http://f.rouge8.com/gifs/wow.gif)
+![wow](http://f.rouge8.com/gifs/bravo.gif)
 
 Currently for Chrome. [Get it now!][chrome] If anyone wants to port it to Firefox, that'd be cool.
 
