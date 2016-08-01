@@ -23,6 +23,11 @@
             "all_frames": true,
             "matches": ["https://talkgadget.google.com/*"],
             "js": ["jquery.js", "lodash.js", "URI.js", "sites/talkgadget.google.com.js"]
+        },
+        {
+            "all_frames": true,
+            "matches": ["https://hangouts.google.com/*"],
+            "js": ["jquery.js", "lodash.js", "URI.js", "sites/talkgadget.google.com.js"]
         }
     ]
 }
